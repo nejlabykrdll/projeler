@@ -80,10 +80,7 @@ function addTodoToUI(newTodo) {
 
     addInput.value = "";
 
-    value=Array.from(li.children)
-    value.forEach(function(newTodo){
-        console.log(li.textContent)
-    })
+    
     
 
 
