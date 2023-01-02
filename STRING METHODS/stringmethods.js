@@ -49,4 +49,3 @@
 // console.log(kurs.startsWith())
 // console.log(kurs.endsWith())
 //beşlangıc ya da bitiş için girdiğiniz değeri doğruluğuna göre true false dönerler. 
-
