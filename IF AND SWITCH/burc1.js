@@ -1,5 +1,5 @@
-let ay = 1
-let gün = 25
+let ay = 2
+let gün = 27
 
 if ((ay == 1 && gün >= 21 && gün <= 31) || (ay == 2 && gün >= 1 && gün <= 19)) {
     alert("burcunuz kova")
