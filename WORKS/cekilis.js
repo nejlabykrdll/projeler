@@ -3,7 +3,7 @@ const form = document.querySelector("#participantAddForm");   //add butonuna tı
 const addInput = document.querySelector("#participantName");    //
 const participantList = document.querySelector(".list-group");
 
-const cardBody = document.querySelectorAll(".card-body")[1];  //carpı butonları ıle temızlemek için buraya eriştik
+const secondCardBody = document.querySelectorAll(".card-body")[1];  //carpı butonları ıle temızlemek için buraya eriştik
 const drawButton = document.querySelector("#drawButton");   //cekılıs butonu secildi
 
 
@@ -12,16 +12,16 @@ runEvents();
 
 function runEvents() {     //tüm eventları çalıştıran fonksiyon
     form.addEventListener("submit", addParticipant);
-  document.addEventListener('DOMContentLoaded',pageLoaded)
+  document.addEventListener('DOMContentLoaded',pageLoaded)  //sayfa yuklendignde degerleri ekrana yazdiran metodu calistirir
   secondCardBody.addEventListener("click",removeParticipantUI)
   drawButton.addEventListener("click",drawStart)
 }
 
 
 function pageLoaded(){
-        checkParticipantFromStorage();
+        checkParticipantFromStorage();    //participants dizisiin guncel degerini alabilmek icin oncelikle bu fonksiynu calistirdik
     participants.forEach(function(participant){
-        addParticipantToUI(participant)
+        addParticipantToUI(participant) //alinan degerleri on yuze yazdirdi
     })
 }
 
@@ -42,8 +42,8 @@ function pageLoaded(){
 
 
 function removeParticipantUI(e){
-    if(e.target.className==="fa fa-remove"){
-       const participant=e.target.parentElement.parentElement    //hangı etıket uzernde calısır
+    if(e.target.className==="fa fa-remove"){   //class buna esitse carpiya basilmis demektir
+       const participant=e.target.parentElement.parentElement    //hangı etıket uzernde calısır, i den a ya a dan li ye gectik
        participant.remove()    //tuttugum li etiketini kaldırdım
         //storageden silme
         removeParticipantToStorage(participant.textContent)
@@ -54,10 +54,10 @@ function removeParticipantUI(e){
 }
 
 
-function removeParticipantToStorage(removeTodo){
-        checkParticipantFromStorage()
+function removeParticipantToStorage(removeParticipant){
+        checkParticipantFromStorage()  //storagedaki guncel deger
     participants.forEach(function(participant,index){
-        if(removeTodo===participant){
+        if(removeParticipant===participant){   
             participants.splice(index,1)      //storage array oldugunddan bır eleman sildik.(carpiya basilinca)
         }
     })
@@ -123,8 +123,8 @@ function addParticipantToUI(newParticipant) {     //arayüze ekleme işi yapan f
 }
 
 function addParticipantToStorage(newParticipant) {
-        checkParticipantFromStorage();
-    participants.push(newParticipant);
+        checkParticipantFromStorage();  //add in icinde yapilacak kontreolu ayri yerde yapip cagirdik
+    participants.push(newParticipant);   //yeni katilimciyi array e koyduk
     localStorage.setItem('participants', JSON.stringify(participants))    //storage a ekleme- ekranda kalmasını sagladı
 }
 
@@ -133,8 +133,8 @@ function addParticipantToStorage(newParticipant) {
 
 function     checkParticipantFromStorage() {
 
-    if (localStorage.getItem('participants') === null) {
-        participants = []
+    if (localStorage.getItem('participants') === null) {   
+        participants = []   //dziyi baslat
     } else {
         participants = JSON.parse(localStorage.getItem('participants'))
     }
