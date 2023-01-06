@@ -1,12 +1,12 @@
 
 const form = document.querySelector("#participantAddForm");   //add butonuna tıklandıgında formdaki degeri almaası için butonun içinde bulundugu formu aldım
-const addInput = document.querySelector("#participantName");    //
+const addInput = document.querySelector("#participantName");    
 const participantList = document.querySelector(".list-group");
 
 const secondCardBody = document.querySelectorAll(".card-body")[1];  //carpı butonları ıle temızlemek için buraya eriştik
 const drawButton = document.querySelector("#drawButton");   //cekılıs butonu secildi
 
-
+let products= ['baklava','cikolata','reyhanli soda','belcika cikolatali cakebeen']
 let participants = [];
 runEvents();
 
@@ -27,15 +27,47 @@ function pageLoaded(){
 
 
   function drawStart(){
+  
 
 
-    participants = JSON.parse(localStorage.getItem('participants'))
-    console.log(participants)
-    let draw=Math.floor(Math.random()*(participants.length))
-    console.log(draw)
-    console.log(participants[draw])
-    alert("  kazanan katılımcı   "+ participants[draw])
-  }
+
+     participants = JSON.parse(localStorage.getItem('participants'))
+     
+      let draw=Math.floor(Math.random()*(participants.length))
+     
+   
+   let win=Math.floor(Math.random()*(products.length))
+     
+     if (participants==null ||participants=="") {
+                alert("Lütfen katılımcı ekleyiniz!");
+             } 
+
+
+
+
+
+ else {
+    alert("  kazanan katılımcı   "+ participants[draw]+' ' + ' '+products[win] +"  ismarlayacak ") 
+ }
+
+
+
+
+
+//              const inputText= addInput.value.trim();
+//          if (inputText == null || inputText== "") {
+//             alert("Lütfen katılımcı giriniz!");
+//          } 
+//          else{
+
+//     participants = JSON.parse(localStorage.getItem('participants'))
+//       console.log(participants)
+//     let draw=Math.floor(Math.random()*(participants.length))
+//      console.log(draw)
+//     console.log(participants[draw])
+//       alert("  kazanan katılımcı   "+ participants[draw])
+//  }
+}
 
 
 
@@ -143,7 +175,7 @@ function     checkParticipantFromStorage() {
 
 
 
-console.log(drawStart())
+
 
 
 
