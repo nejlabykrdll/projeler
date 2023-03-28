@@ -35,7 +35,7 @@
 // console.log(kurs.substring(0,6))
 //slıce ıle aynı .Harfi ya da kelimeyi çekip almak için kullanılır.
 
-// console.log(kurs.replace('Modern','Güncel))
+// console.log(kurs.replace('Modern','Güncel'))
 //var olanı başka bir kelimeyle değiştirir.
 
 // console.log(kurs.valueOf(0,6))
