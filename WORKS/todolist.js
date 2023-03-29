@@ -13,12 +13,46 @@ function eventListeners() {
 }
 function addTodo(e) {
     const newTodo = todoInput.value.trim();
+    if (newTodo === "") {
 
-    addTodoUI(newTodo);
+        //     <div class="alert alert-danger" role="alert">
+        //     This is a danger alert—check it out!
+        //   </div>
+        showAlert("danger", "Lütfen bir todo giriniz");
+
+    }
+    else {
+        addTodoUI(newTodo);
+    }
+
+
 
 
     e.preventDefault();
 }
+
+function showAlert(type,message) {
+
+    const alert = document.createElement("div");
+
+    alert.className = `alert alert-${type}`;
+
+    alert.textContent = message;
+
+    firstCardBody.appendChild(alert);
+
+  setTimeout(function(){
+    alert.remove();
+
+  },1000)
+}
+
+
+
+
+
+
+
 
 function addTodoUI(newTodo) { //string değer list item olarak arayüze eklenir
 
